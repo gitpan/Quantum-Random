@@ -1,0 +1,65 @@
+NAME
+    Quantum::Random - Optical quantum random number generator front-end
+
+SYNOPSIS
+      package Your::Package;
+
+      use strict;
+      use Quantum::Random qw(quantum_random);
+
+      my @numbers = quantum_random(10, 5);
+
+      die "Error: $Quantum::Random::Error\n" unless @numbers;
+
+      print join ', ', @numbers;
+
+DESCRIPTION
+    Quantum::Random is a front-end to the optical quantum random number
+    generator at the Computer Science department of the University of
+    Geneva. For details on the generator, visit:
+    http://www.randomnumbers.info/
+
+    The site states, "The Computer Science department of the University of
+    Geneva has developed a server/client application for scientist from
+    around the world to be able to download random numbers directly in the
+    C, C+, Fortran or Java codes [sic] used for their simulations."
+
+    As they have no stated plans for developing a perl interface, I have
+    taken it upon myself to author one.
+
+USAGE
+    The subroutine 'quantum_random' will be exported into your namespace as
+    shown above. It accepts two mandatory arguments. The first argument
+    represents the number of random numbers you want (i.e., the quantity)
+    and must be between 1 and 1000. The second argument represents the
+    maximum number that you want any given random number to be (i.e., the
+    maximum) and must be between 1 and 10000. On success, you will be
+    returned a list of random numbers. On failure, you will be returned an
+    empty set and can get details on the failure by checking the contents of
+    $Quantum::Random::Error.
+
+CAVEATS
+    Note: This module makes external connections to the optical quantum
+    random number generator site. It is the user's responsibility to ensure
+    that they are in compliance with any respective terms of use clauses for
+    site usage. The author assumes no liability for the use or misuse of
+    this module.
+
+COPYRIGHT
+      Copyright (c) 2004 Adam J. Foxson. All rights reserved.
+
+LICENSE
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the
+    Free Software Foundation; either version 2 of the License, or (at your
+    option) any later version. See the file 'COPYING', included in this
+    distribution.
+
+SEE ALSO
+    * perl
+    * Module::Signature
+    * Module::Install
+
+AUTHOR
+    Adam J. Foxson <afoxson@pobox.com>.
+
